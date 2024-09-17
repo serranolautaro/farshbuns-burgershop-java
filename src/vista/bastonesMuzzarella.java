@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.JTextPane;
 
 public class bastonesMuzzarella extends JPanel {
 
@@ -84,22 +85,28 @@ public class bastonesMuzzarella extends JPanel {
 		lblBastonesTitulo.setBounds(715, 107, 398, 33);
 		add(lblBastonesTitulo);
 		
-		JLabel lblBastonesDescripcion = new JLabel("Los Bastones de Muzzarella son una verdadera delicia para los amantes del queso. Están hechos de mozzarella derretida, envuelta en un crujiente empanizado y fritos hasta alcanzar la perfección dorada. Acompañados de una salsa marinara para mojar.");
-		lblBastonesDescripcion.setVerticalAlignment(SwingConstants.TOP);
-		lblBastonesDescripcion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBastonesDescripcion.setBounds(715, 176, 398, 208);
-		add(lblBastonesDescripcion);
-		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
 		JLabel lblBastonesIngredientes = new JLabel("Ingredientes: Mozzarella, empanizado crujiente, salsa marinara.");
-		lblBastonesIngredientes.setBounds(715, 395, 398, 33);
+		lblBastonesIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblBastonesIngredientes.setBounds(715, 395, 476, 33);
 		add(lblBastonesIngredientes);
+		
+		JTextPane txtpnBastonesMuzza = new JTextPane();
+		txtpnBastonesMuzza.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtpnBastonesMuzza.setText("Los Bastones de Muzzarella son una verdadera delicia para los amantes del queso. Están hechos de mozzarella derretida, envuelta en un crujiente empanizado y fritos hasta alcanzar la perfección dorada. Acompañados de una salsa marinara para mojar.");
+		txtpnBastonesMuzza.setBounds(714, 151, 476, 233);
+		txtpnBastonesMuzza.setOpaque(false);
+		txtpnBastonesMuzza.setBackground(new Color(0, 0, 0, 0));
+		add(txtpnBastonesMuzza);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 
 
 	}
-
 }

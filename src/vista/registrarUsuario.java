@@ -38,6 +38,10 @@ public class registrarUsuario extends JPanel {
 		btnLogo.setContentAreaFilled(false);
 		btnLogo.setBounds(10, 11, 119, 100);
 		add(btnLogo);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 
 	}
 

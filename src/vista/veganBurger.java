@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.JTextPane;
 
 public class veganBurger extends JPanel {
 
@@ -84,22 +85,27 @@ public class veganBurger extends JPanel {
 		lblVeganBurger.setBounds(715, 107, 398, 33);
 		add(lblVeganBurger);
 		
-		JLabel lblVeganBurgerDescripcion = new JLabel("Nuestra Cheese Burger clásica es perfecta para los amantes del queso. Con dos capas de jugosa carne de res, cubiertas con una generosa porción de queso cheddar derretido, todo dentro de un pan esponjoso. Es una delicia simple pero irresistible.");
-		lblVeganBurgerDescripcion.setVerticalAlignment(SwingConstants.TOP);
-		lblVeganBurgerDescripcion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVeganBurgerDescripcion.setBounds(715, 176, 398, 208);
-		add(lblVeganBurgerDescripcion);
-		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
 		JLabel lblVeganBurgerIngredientes = new JLabel("Carne de res, queso cheddar, pan de hamburguesa.");
-		lblVeganBurgerIngredientes.setBounds(715, 395, 398, 33);
+		lblVeganBurgerIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblVeganBurgerIngredientes.setBounds(715, 395, 456, 33);
 		add(lblVeganBurgerIngredientes);
-
-
+		
+		JTextPane txtpnDescVegan = new JTextPane();
+		txtpnDescVegan.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtpnDescVegan.setText("Nuestra Cheese Burger clásica es perfecta para los amantes del queso. Con dos capas de jugosa carne de res, cubiertas con una generosa porción de queso cheddar derretido, todo dentro de un pan esponjoso. Es una delicia simple pero irresistible.");
+		txtpnDescVegan.setBounds(715, 151, 456, 241);
+		txtpnDescVegan.setOpaque(false);
+		txtpnDescVegan.setBackground(new Color(0, 0, 0, 0));
+		add(txtpnDescVegan);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 	}
 
 }

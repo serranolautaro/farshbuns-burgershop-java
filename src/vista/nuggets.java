@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.JTextPane;
 
 public class nuggets extends JPanel {
 
@@ -84,20 +85,27 @@ public class nuggets extends JPanel {
 		lblNuggets.setBounds(715, 107, 398, 33);
 		add(lblNuggets);
 		
-		JLabel lblNuggetsDescripcion = new JLabel("Nuestros Nuggets son bocados crujientes y dorados por fuera, tiernos y jugosos por dentro. Perfectos para compartir o disfrutar como acompañamiento, vienen acompañados de una salsa especial que realza su sabor.");
-		lblNuggetsDescripcion.setVerticalAlignment(SwingConstants.TOP);
-		lblNuggetsDescripcion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNuggetsDescripcion.setBounds(715, 176, 398, 208);
-		add(lblNuggetsDescripcion);
-		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
 		JLabel lblNuggetsIngredientes = new JLabel("Ingredientes: Pollo, empanizado crujiente.");
+		lblNuggetsIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNuggetsIngredientes.setBounds(715, 395, 398, 33);
 		add(lblNuggetsIngredientes);
+		
+		JTextPane txtpnDescNuggets = new JTextPane();
+		txtpnDescNuggets.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtpnDescNuggets.setText("Nuestros Nuggets son bocados crujientes y dorados por fuera, tiernos y jugosos por dentro. Perfectos para compartir o disfrutar como acompañamiento, vienen acompañados de una salsa especial que realza su sabor.");
+		txtpnDescNuggets.setBounds(715, 151, 433, 233);
+		txtpnDescNuggets.setOpaque(false);
+		txtpnDescNuggets.setBackground(new Color(0, 0, 0, 0));
+		add(txtpnDescNuggets);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 
 
 	}

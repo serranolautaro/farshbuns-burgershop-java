@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.JTextPane;
 
 public class cheeseBurger extends JPanel {
 
@@ -84,20 +85,27 @@ public class cheeseBurger extends JPanel {
 		lblCheeseburgerTitulo.setBounds(715, 107, 398, 33);
 		add(lblCheeseburgerTitulo);
 		
-		JLabel lblCheeseburgerDescripcion = new JLabel("Nuestra Cheese Burger clásica es perfecta para los amantes del queso. Con dos capas de jugosa carne de res, cubiertas con una generosa porción de queso cheddar derretido, todo dentro de un pan esponjoso. Es una delicia simple pero irresistible.");
-		lblCheeseburgerDescripcion.setVerticalAlignment(SwingConstants.TOP);
-		lblCheeseburgerDescripcion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCheeseburgerDescripcion.setBounds(715, 176, 398, 208);
-		add(lblCheeseburgerDescripcion);
-		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
 		JLabel lblCheeseburgerIngredientes = new JLabel("Carne de res, queso cheddar, pan de hamburguesa.");
-		lblCheeseburgerIngredientes.setBounds(715, 395, 398, 33);
+		lblCheeseburgerIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCheeseburgerIngredientes.setBounds(715, 395, 419, 33);
 		add(lblCheeseburgerIngredientes);
+		
+		JTextPane txtpnDescCheeseBurger = new JTextPane();
+		txtpnDescCheeseBurger.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtpnDescCheeseBurger.setText("Nuestra Cheese Burger clásica es perfecta para los amantes del queso. Con dos capas de jugosa carne de res, cubiertas con una generosa porción de queso cheddar derretido, todo dentro de un pan esponjoso. Es una delicia simple pero irresistible.");
+		txtpnDescCheeseBurger.setBounds(715, 151, 419, 233);
+		txtpnDescCheeseBurger.setOpaque(false);
+		txtpnDescCheeseBurger.setBackground(new Color(0, 0, 0, 0));
+		add(txtpnDescCheeseBurger);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 
 	}
 

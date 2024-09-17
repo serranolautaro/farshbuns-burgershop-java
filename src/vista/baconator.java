@@ -102,6 +102,10 @@ public class baconator extends JPanel {
 		textPaneDescripcionBaconator.setOpaque(false);
 		textPaneDescripcionBaconator.setBackground(new Color(0, 0, 0, 0));
 		add(textPaneDescripcionBaconator);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 
 	}
 }

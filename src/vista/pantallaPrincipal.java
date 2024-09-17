@@ -29,8 +29,7 @@ public class pantallaPrincipal extends JPanel {
 		setForeground(new Color(255, 255, 255));
 		setLayout(null);
 		setBounds(0, 0, 1280, 720);
-		
-		
+
 		//Como poner una imagen
 		JLabel logo = new JLabel(new ImageIcon(""));
 		logo.setBounds(85,171,50,50);
@@ -184,5 +183,9 @@ public class pantallaPrincipal extends JPanel {
 		lblBastonesDeMuzzarella.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblBastonesDeMuzzarella.setBounds(678, 579, 200, 14);
 		add(lblBastonesDeMuzzarella);
+		
+		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 	}
 }

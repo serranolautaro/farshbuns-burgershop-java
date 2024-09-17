@@ -67,5 +67,9 @@ public class carritoCompras extends JPanel {
 	        });
 	        btnPagar.setBounds(460, 613, 100, 30);
 	        add(btnPagar);
+	        
+	        GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+	        gradientPanel.setBounds(0, 0, 1280, 720);
+	        add(gradientPanel);  
 	}
 }

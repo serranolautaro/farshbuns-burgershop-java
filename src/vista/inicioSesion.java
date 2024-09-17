@@ -136,6 +136,10 @@ public class inicioSesion extends JPanel {
         });
         btnRegistrar.setBounds(381, 269, 172, 28);
         add(btnRegistrar);
+        
+        GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
     }
 }
 
