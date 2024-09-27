@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,36 @@ public class UsuarioDAO {
 			ex.printStackTrace();
 		}
 		return c;
+	}
+	
+	public boolean insertarUsuario(Usuarios nuevoUsuario) {
+	    Connection c = null;
+	    boolean resultado = false;
+	    try {
+	        c = conectar();
+	        String sql = "INSERT INTO usuario (nombreUsuario, contraseniaUsuario, ubicacionUsuario, telefonoUsuario) VALUES (?, ?, ?, ?)";
+	        PreparedStatement pstmt = c.prepareStatement(sql);
+	        pstmt.setString(1, nuevoUsuario.getNombre_usuario());
+	        pstmt.setString(2, nuevoUsuario.getContraseñaUsuario());
+	        pstmt.setString(3, nuevoUsuario.getUbicacion());
+	        pstmt.setInt(4, nuevoUsuario.getTelefono());
+
+	        int filasAfectadas = pstmt.executeUpdate();
+	        if (filasAfectadas > 0) {
+	            resultado = true;
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    } finally {
+	        try {
+	            if (c != null) {
+	                c.close();
+	            }
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
+	    return resultado;
 	}
 	
 	public ArrayList<Usuarios> traerTodasLosUsuarios() {

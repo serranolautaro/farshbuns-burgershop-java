@@ -75,7 +75,7 @@ public class bastonesMuzzarella extends JPanel {
 		btnIniciarSesion.setBounds(1128, 11, 62, 59);
 		add(btnIniciarSesion);
 		
-		JLabel imagenBastones = new JLabel(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\baconatorImagenGrande.png"));
+		JLabel imagenBastones = new JLabel(new ImageIcon("C:\\Users\\usuario\\eclipse-workspace\\farshbuns-burgershop-java-main\\img\\hamburguesas\\bastonesMuzzaGrande.jpg"));
 		imagenBastones.setBounds(104,107,601,489);
 		add(imagenBastones);
 		

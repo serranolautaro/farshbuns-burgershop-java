@@ -155,7 +155,7 @@ public class pantallaPrincipal extends JPanel {
 				marco.validate();
 			}
 		});
-		btnBastones.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\bastonesMuzza.jpg"));
+		btnBastones.setIcon(new ImageIcon("C:/Users/Taro/eclipse-workspace/ProyectoFARSHBUNS/img/hamburguesas/bastonesMuzza.jpg"));
 		btnBastones.setBounds(678, 376, 200, 200);
 		add(btnBastones);
 		
