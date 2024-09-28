@@ -43,7 +43,7 @@ public class pantallaPrincipal extends JPanel {
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
 		
-		btnIniciarSesion.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\usuario.png"));
+		btnIniciarSesion.setIcon(new ImageIcon("img\\pantallaPrincipal\\usuario.png"));
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -69,7 +69,7 @@ public class pantallaPrincipal extends JPanel {
 				marco.validate();
 			}
 		});
-		btnCarritoCompras.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\carrito.png"));
+		btnCarritoCompras.setIcon(new ImageIcon("img\\pantallaPrincipal\\carrito.png"));
 		btnCarritoCompras.setBounds(1016, 11, 83, 59);
 		btnCarritoCompras.setOpaque(false);
 		btnCarritoCompras.setBorderPainted(false);
@@ -77,7 +77,7 @@ public class pantallaPrincipal extends JPanel {
 		add(btnCarritoCompras);
 		
 		JButton btnAsistente = new JButton("");
-		btnAsistente.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\asistenteVirtual.png"));
+		btnAsistente.setIcon(new ImageIcon("img\\pantallaPrincipal\\asistenteVirtual.png"));
 		btnAsistente.setBounds(1194, 610, 50, 50);
 		btnAsistente.setOpaque(false);
 		btnAsistente.setBorderPainted(false);
@@ -85,7 +85,7 @@ public class pantallaPrincipal extends JPanel {
 		add(btnAsistente);
 		
 		JButton btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\logo\\logo5.png"));
+		btnLogo.setIcon(new ImageIcon("img\\logo\\logo5.png"));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -107,12 +107,12 @@ public class pantallaPrincipal extends JPanel {
 				marco.validate();
 			}
 		});
-		btnBaconator.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\baconator.jpg"));
+		btnBaconator.setIcon(new ImageIcon("img\\hamburguesas\\baconator.jpg"));
 		btnBaconator.setBounds(336, 127, 200, 200);
 		add(btnBaconator);
 		
 		JButton btnCheeseBurger = new JButton("");
-		btnCheeseBurger.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\bbb.png"));
+		btnCheeseBurger.setIcon(new ImageIcon("img\\hamburguesas\\bbb.png"));
 		btnCheeseBurger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -131,7 +131,7 @@ public class pantallaPrincipal extends JPanel {
 				marco.validate();
 			}
 		});
-		btnVeganBurger.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\veganburger.jpg"));
+		btnVeganBurger.setIcon(new ImageIcon("img\\hamburguesas\\veganburgerGrande.jpg"));
 		btnVeganBurger.setBounds(756, 127, 200, 200);
 		add(btnVeganBurger);
 		
@@ -143,7 +143,7 @@ public class pantallaPrincipal extends JPanel {
 				marco.validate();
 			}
 		});
-		btnNuggets.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\NNuggets.jpg"));
+		btnNuggets.setIcon(new ImageIcon("img\\hamburguesas\\NNuggets.jpg"));
 		btnNuggets.setBounds(435, 376, 200, 200);
 		add(btnNuggets);
 		
@@ -155,7 +155,7 @@ public class pantallaPrincipal extends JPanel {
 				marco.validate();
 			}
 		});
-		btnBastones.setIcon(new ImageIcon("C:/Users/Taro/eclipse-workspace/ProyectoFARSHBUNS/img/hamburguesas/bastonesMuzza.jpg"));
+		btnBastones.setIcon(new ImageIcon("img/hamburguesas/bastonesMuzza.jpg"));
 		btnBastones.setBounds(678, 376, 200, 200);
 		add(btnBastones);
 		

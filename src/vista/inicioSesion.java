@@ -56,21 +56,21 @@ public class inicioSesion extends JPanel {
         
         JLabel lblUsuario = new JLabel("USUARIO");
         lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblUsuario.setBounds(116, 149, 172, 28);
+        lblUsuario.setBounds(433, 217, 172, 28);
         add(lblUsuario);
         
         textFieldUsuario = new JTextField();
-        textFieldUsuario.setBounds(116, 178, 172, 28);
+        textFieldUsuario.setBounds(433, 256, 172, 28);
         add(textFieldUsuario);
         textFieldUsuario.setColumns(10);
         
         JLabel lblContraseña = new JLabel("CONTRASEÑA");
         lblContraseña.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        lblContraseña.setBounds(381, 149, 172, 28);
+        lblContraseña.setBounds(677, 217, 172, 28);
         add(lblContraseña);
         
         textFieldContraseña = new JTextField();
-        textFieldContraseña.setBounds(381, 178, 172, 28);
+        textFieldContraseña.setBounds(677, 256, 172, 28);
         add(textFieldContraseña);
         textFieldContraseña.setColumns(10);
         
@@ -112,7 +112,7 @@ public class inicioSesion extends JPanel {
                 }
             }
         });
-        btnIngresar.setBounds(116, 269, 172, 28);
+        btnIngresar.setBounds(433, 295, 172, 28);
         add(btnIngresar);
         
         JButton btnRegresar = new JButton("REGRESAR");
@@ -123,7 +123,7 @@ public class inicioSesion extends JPanel {
                 marco.validate();
             }
         });
-        btnRegresar.setBounds(116, 325, 172, 28);
+        btnRegresar.setBounds(784, 334, 172, 28);
         add(btnRegresar);
         
         JButton btnRegistrar = new JButton("REGISTRARTE");
@@ -134,12 +134,13 @@ public class inicioSesion extends JPanel {
                 marco.validate();
             }
         });
-        btnRegistrar.setBounds(381, 269, 172, 28);
+        btnRegistrar.setBounds(433, 334, 172, 28);
         add(btnRegistrar);
-        
+
         GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
+
     }
 }
 

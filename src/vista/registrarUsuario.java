@@ -53,27 +53,27 @@ public class registrarUsuario extends JPanel {
 		
 		JLabel lblUsuario = new JLabel("USUARIO");
         lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 11));
-        lblUsuario.setBounds(338, 338, 200, 14);
+        lblUsuario.setBounds(338, 259, 200, 14);
 		add(lblUsuario);
 		
 		JLabel lblContraseña = new JLabel("CONTRASEÑA");
 		lblContraseña.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblContraseña.setBounds(712, 338, 127, 14);
+		lblContraseña.setBounds(712, 259, 127, 14);
 		add(lblContraseña);
 		
 		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(338, 353, 187, 20);
+		textFieldUsuario.setBounds(338, 274, 187, 20);
 		add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
 		textFieldContrasenia = new JTextField();
-		textFieldContrasenia.setBounds(712, 353, 187, 20);
+		textFieldContrasenia.setBounds(712, 274, 187, 20);
 		add(textFieldContrasenia);
 		textFieldContrasenia.setColumns(10);
 		
 		JLabel lblNuevoRegistro = new JLabel("CREA TU CUENTA");
 		lblNuevoRegistro.setFont(new Font("Tahoma", Font.BOLD, 21));
-		lblNuevoRegistro.setBounds(516, 268, 194, 27);
+		lblNuevoRegistro.setBounds(516, 189, 194, 27);
 		add(lblNuevoRegistro);
 		
 		JLabel lblMensajeError = new JLabel("");
@@ -114,38 +114,43 @@ public class registrarUsuario extends JPanel {
 		        }
 			}
 		});
-		btnCreaTuCuenta.setBounds(516, 453, 194, 20);
+		btnCreaTuCuenta.setBounds(516, 374, 194, 20);
 		add(btnCreaTuCuenta);
 		
 		textFieldTelefono = new JTextField();
-		textFieldTelefono.setBounds(338, 406, 187, 20);
+		textFieldTelefono.setBounds(338, 327, 187, 20);
 		add(textFieldTelefono);
 		textFieldTelefono.setColumns(10);
 		
 		JLabel lblTelefono = new JLabel("TELEFONO");
 		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblTelefono.setBounds(338, 392, 200, 14);
+		lblTelefono.setBounds(338, 313, 200, 14);
 		add(lblTelefono);
 		
 		JLabel lblUbicacion = new JLabel("UBICACION");
 		lblUbicacion.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblUbicacion.setBounds(712, 392, 200, 14);
+		lblUbicacion.setBounds(712, 313, 200, 14);
 		add(lblUbicacion);
 		
 		textFieldUbicacion = new JTextField();
 		textFieldUbicacion.setColumns(10);
-		textFieldUbicacion.setBounds(712, 406, 187, 20);
+		textFieldUbicacion.setBounds(712, 327, 187, 20);
 		add(textFieldUbicacion);
 		
-		
-		
-		/*
+		JButton btnRegresar = new JButton("REGRESAR");
+		btnRegresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+                marco.setContentPane(new pantallaPrincipal());
+                marco.validate();
+			}
+		});
+		btnRegresar.setBounds(516, 453, 194, 20);
+		add(btnRegresar);
+
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);
-        */
-        
-        
 
 	}
 }

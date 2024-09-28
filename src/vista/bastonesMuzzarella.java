@@ -29,7 +29,7 @@ public class bastonesMuzzarella extends JPanel {
 		setLayout(null);
 		
 		JButton btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\logo\\logo5.png"));
+		btnLogo.setIcon(new ImageIcon("img\\logo\\logo5.png"));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -51,7 +51,7 @@ public class bastonesMuzzarella extends JPanel {
 				marco.validate();
 			}
 		});
-		btnCarritoCompras.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\carrito.png"));
+		btnCarritoCompras.setIcon(new ImageIcon("img\\pantallaPrincipal\\carrito.png"));
 		btnCarritoCompras.setBounds(1016, 11, 83, 59);
 		btnCarritoCompras.setOpaque(false);
 		btnCarritoCompras.setBorderPainted(false);
@@ -64,7 +64,7 @@ public class bastonesMuzzarella extends JPanel {
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
 		
-		btnIniciarSesion.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\usuario.png"));
+		btnIniciarSesion.setIcon(new ImageIcon("img\\pantallaPrincipal\\usuario.png"));
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -75,7 +75,7 @@ public class bastonesMuzzarella extends JPanel {
 		btnIniciarSesion.setBounds(1128, 11, 62, 59);
 		add(btnIniciarSesion);
 		
-		JLabel imagenBastones = new JLabel(new ImageIcon("C:\\Users\\usuario\\eclipse-workspace\\farshbuns-burgershop-java-main\\img\\hamburguesas\\bastonesMuzzaGrande.jpg"));
+		JLabel imagenBastones = new JLabel(new ImageIcon("img\\hamburguesas\\bastonesMuzzaGrande.jpg"));
 		imagenBastones.setBounds(104,107,601,489);
 		add(imagenBastones);
 		

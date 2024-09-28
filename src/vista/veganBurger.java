@@ -29,7 +29,7 @@ public class veganBurger extends JPanel {
 		setLayout(null);
 		
 		JButton btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\logo\\logo5.png"));
+		btnLogo.setIcon(new ImageIcon("img\\logo\\logo5.png"));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -51,7 +51,7 @@ public class veganBurger extends JPanel {
 				marco.validate();
 			}
 		});
-		btnCarritoCompras.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\carrito.png"));
+		btnCarritoCompras.setIcon(new ImageIcon("img\\pantallaPrincipal\\carrito.png"));
 		btnCarritoCompras.setBounds(1016, 11, 83, 59);
 		btnCarritoCompras.setOpaque(false);
 		btnCarritoCompras.setBorderPainted(false);
@@ -64,7 +64,7 @@ public class veganBurger extends JPanel {
 		btnIniciarSesion.setBorderPainted(false);
 		btnIniciarSesion.setContentAreaFilled(false);
 		
-		btnIniciarSesion.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\pantallaPrincipal\\usuario.png"));
+		btnIniciarSesion.setIcon(new ImageIcon("img\\pantallaPrincipal\\usuario.png"));
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -75,11 +75,11 @@ public class veganBurger extends JPanel {
 		btnIniciarSesion.setBounds(1128, 11, 62, 59);
 		add(btnIniciarSesion);
 		
-		JLabel imagenVeganBurger = new JLabel(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\hamburguesas\\baconatorImagenGrande.png"));
+		JLabel imagenVeganBurger = new JLabel(new ImageIcon("img\\hamburguesas\\veganburgerGrande.jpg"));
 		imagenVeganBurger.setBounds(104,107,601,489);
 		add(imagenVeganBurger);
 		
-		JLabel lblVeganBurger = new JLabel("CHEESE BURGER");
+		JLabel lblVeganBurger = new JLabel("VEGAN BURGER");
 		lblVeganBurger.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVeganBurger.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 26));
 		lblVeganBurger.setBounds(715, 107, 398, 33);
@@ -90,14 +90,14 @@ public class veganBurger extends JPanel {
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
-		JLabel lblVeganBurgerIngredientes = new JLabel("Carne de res, queso cheddar, pan de hamburguesa.");
+		JLabel lblVeganBurgerIngredientes = new JLabel("Proteína vegetal, queso vegano, pan de hamburguesa integral.");
 		lblVeganBurgerIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblVeganBurgerIngredientes.setBounds(715, 395, 456, 33);
+		lblVeganBurgerIngredientes.setBounds(715, 395, 511, 33);
 		add(lblVeganBurgerIngredientes);
 		
 		JTextPane txtpnDescVegan = new JTextPane();
 		txtpnDescVegan.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtpnDescVegan.setText("Nuestra Cheese Burger clásica es perfecta para los amantes del queso. Con dos capas de jugosa carne de res, cubiertas con una generosa porción de queso cheddar derretido, todo dentro de un pan esponjoso. Es una delicia simple pero irresistible.");
+		txtpnDescVegan.setText("Nuestra Vegan Burger clásica es ideal para los amantes de la comida vegetal. Con dos capas de jugosa hamburguesa a base de proteína vegetal, cubiertas con una generosa porción de queso vegano derretido, todo dentro de un suave pan integral. Es una delicia simple pero llena de sabor que te conquistará desde el primer bocado.");
 		txtpnDescVegan.setBounds(715, 151, 456, 241);
 		txtpnDescVegan.setOpaque(false);
 		txtpnDescVegan.setBackground(new Color(0, 0, 0, 0));

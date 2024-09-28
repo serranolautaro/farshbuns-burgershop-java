@@ -44,8 +44,6 @@ public class carritoCompras extends JPanel {
 		add(btnLogo);
 		
 		DefaultListModel<String> modeloLista = new DefaultListModel<>();
-	        modeloLista.addElement("BACONATOR - $14199");
-	        modeloLista.addElement("VEGAN BURGER - $11999");
 	        JScrollPane scrollPane = new JScrollPane();
 	        scrollPane.setBounds(460, 129, 300, 400);
 	        add(scrollPane);
@@ -54,7 +52,7 @@ public class carritoCompras extends JPanel {
 	        	        scrollPane.setViewportView(listProductos);
 
 	        // Etiqueta para mostrar total del carrito
-	        JLabel lblTotal = new JLabel("Total: $26198");
+	        JLabel lblTotal = new JLabel("Total: ");
 	        lblTotal.setForeground(Color.WHITE);
 	        lblTotal.setBounds(460, 573, 200, 30);
 	        add(lblTotal);
@@ -63,6 +61,9 @@ public class carritoCompras extends JPanel {
 	        JButton btnPagar = new JButton("Pagar");
 	        btnPagar.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
+	            	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+	                marco.setContentPane(new PedidoCliente());
+	                marco.validate();
 	            }
 	        });
 	        btnPagar.setBounds(460, 613, 100, 30);
