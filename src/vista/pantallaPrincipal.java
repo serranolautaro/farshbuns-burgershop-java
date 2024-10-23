@@ -77,6 +77,11 @@ public class pantallaPrincipal extends JPanel {
 		add(btnCarritoCompras);
 		
 		JButton btnAsistente = new JButton("");
+		btnAsistente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnAsistente.setIcon(new ImageIcon("img\\pantallaPrincipal\\asistenteVirtual.png"));
 		btnAsistente.setBounds(1194, 610, 50, 50);
 		btnAsistente.setOpaque(false);
@@ -183,6 +188,36 @@ public class pantallaPrincipal extends JPanel {
 		lblBastonesDeMuzzarella.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblBastonesDeMuzzarella.setBounds(678, 579, 200, 14);
 		add(lblBastonesDeMuzzarella);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String textoBusqueda = textFieldBarraBusqueda.getText().trim().toLowerCase();
+				 if (textoBusqueda.isEmpty() || "baconator".contains(textoBusqueda)) {
+			        	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+						marco.setContentPane(new baconator());
+						marco.validate();
+			        } else if (textoBusqueda.isEmpty() || "cheese".contains(textoBusqueda)) {
+			        	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+						marco.setContentPane(new cheeseBurger());
+						marco.validate();
+					} else if (textoBusqueda.isEmpty() || "vegan".contains(textoBusqueda)) {
+						JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+						marco.setContentPane(new veganBurger());
+						marco.validate();
+					} else if (textoBusqueda.isEmpty() || "bastones".contains(textoBusqueda)) {
+						JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+						marco.setContentPane(new bastonesMuzzarella());
+						marco.validate();
+					}else if(textoBusqueda.isEmpty() || "nuggets".contains(textoBusqueda)){
+						JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+						marco.setContentPane(new nuggets());
+						marco.validate();
+			        }
+			}
+		});
+		btnBuscar.setBounds(857, 23, 99, 41);
+		add(btnBuscar);
 		
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);

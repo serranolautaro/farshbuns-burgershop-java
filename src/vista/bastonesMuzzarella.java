@@ -80,6 +80,7 @@ public class bastonesMuzzarella extends JPanel {
 		add(imagenBastones);
 		
 		JLabel lblBastonesTitulo = new JLabel("BASTONES DE MUZZARELLA");
+		lblBastonesTitulo.setForeground(new Color(255, 255, 255));
 		lblBastonesTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBastonesTitulo.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 26));
 		lblBastonesTitulo.setBounds(715, 107, 398, 33);
@@ -91,11 +92,13 @@ public class bastonesMuzzarella extends JPanel {
 		add(btnAgregarCarrito);
 		
 		JLabel lblBastonesIngredientes = new JLabel("Ingredientes: Mozzarella, empanizado crujiente, salsa marinara.");
+		lblBastonesIngredientes.setForeground(new Color(255, 255, 255));
 		lblBastonesIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblBastonesIngredientes.setBounds(715, 395, 476, 33);
 		add(lblBastonesIngredientes);
 		
 		JTextPane txtpnBastonesMuzza = new JTextPane();
+		txtpnBastonesMuzza.setForeground(new Color(255, 255, 255));
 		txtpnBastonesMuzza.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtpnBastonesMuzza.setText("Los Bastones de Muzzarella son una verdadera delicia para los amantes del queso. Están hechos de mozzarella derretida, envuelta en un crujiente empanizado y fritos hasta alcanzar la perfección dorada. Acompañados de una salsa marinara para mojar.");
 		txtpnBastonesMuzza.setBounds(714, 151, 476, 233);
@@ -106,7 +109,6 @@ public class bastonesMuzzarella extends JPanel {
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
-
 
 	}
 }

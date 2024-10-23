@@ -40,7 +40,7 @@ public class inicioSesion extends JPanel {
         setLayout(null);
         
         JButton btnLogo = new JButton("");
-        btnLogo.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\logo\\logo5.png"));
+        btnLogo.setIcon(new ImageIcon("img\\logo\\logo5.png"));
         btnLogo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());

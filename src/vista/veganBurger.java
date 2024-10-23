@@ -86,6 +86,11 @@ public class veganBurger extends JPanel {
 		add(lblVeganBurger);
 		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
+		btnAgregarCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
@@ -103,9 +108,11 @@ public class veganBurger extends JPanel {
 		txtpnDescVegan.setBackground(new Color(0, 0, 0, 0));
 		add(txtpnDescVegan);
 		
+		/*
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
-        add(gradientPanel);  
+        add(gradientPanel);
+        */  
 	}
 
 }

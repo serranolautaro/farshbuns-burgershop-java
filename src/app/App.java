@@ -1,7 +1,6 @@
 package app;
 
 import javax.swing.JFrame;
-
 import vista.pantallaPrincipal;
 
 public class App {
