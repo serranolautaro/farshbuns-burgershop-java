@@ -21,7 +21,9 @@ public class chatbot extends JPanel {
 	public chatbot() {
 		 respuestas = new HashMap<>();
 	        respuestas.put("Hola", "Bienvenido a Farshbuns ¿qué desea hoy?");
+	        respuestas.put("hola", "Bienvenido a Farshbuns ¿qué desea hoy?");
 	        respuestas.put("Hamburguesas", "La lista de hamburguesas disponibles es: \n·Baconator \n·Cheese \n·Vegan ");
+	        respuestas.put("Acompañantes", "La lista de acompañantes disponibles es: \\n·Nuggets \\n·Bastones de Muzzarella");
 	        
 	        menuDiario = new HashMap<>();
 		     menuDiario.put(DayOfWeek.MONDAY, "Menú del lunes: Baconator junto a unos bastones de muzzarella.");
@@ -41,24 +43,6 @@ public class chatbot extends JPanel {
 	        // Configurar el campo de entrada
 	        inputField = new JTextField(20);
 	        sendButton = new JButton("Enviar");
-	        
-	        // Agregar componentes al panel
-	        setLayout(new BorderLayout());
-	        add(new JScrollPane(chatArea), BorderLayout.CENTER);
-	        
-	        JPanel inputPanel = new JPanel();
-	        inputPanel.setLayout(new BorderLayout());
-	        inputPanel.add(inputField, BorderLayout.CENTER);
-	        inputPanel.add(sendButton, BorderLayout.EAST);
-	        add(inputPanel, BorderLayout.SOUTH);
-	        
-	        // Agregar el action listener para el botón y el campo de texto
-	        sendButton.addActionListener(new ActionListener() {
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	                enviarPregunta();
-	            }
-	        });
 	        
 	        inputField.addActionListener(new ActionListener() {
 	            @Override
@@ -84,15 +68,6 @@ public class chatbot extends JPanel {
             return getMenuDelDia();
         }
         return respuestas.getOrDefault(pregunta, "No sé, pregúntale al CoOwner, Francisco Masa.");
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Chatbot de Farshbuns");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new chatbot());
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
     }
     
     private String getMenuDelDia() {

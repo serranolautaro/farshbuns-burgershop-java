@@ -11,7 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import modelos.Usuarios;
+import modelos.Usuario;
 import dao.UsuarioDAO;
 
 import javax.swing.ImageIcon;
@@ -88,12 +88,12 @@ public class inicioSesion extends JPanel {
                 String contrasenaUsuario = textFieldContraseña.getText();
                 
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                ArrayList<Usuarios> usuarios = usuarioDAO.traerTodasLosUsuarios();
+                ArrayList<Usuario> usuarios = usuarioDAO.traerTodasLosUsuarios();
 
                 boolean usuarioValido = false;
 
                 // Verifica si el nombre de usuario y la contraseña coinciden
-                for (Usuarios usuario : usuarios) {
+                for (Usuario usuario : usuarios) {
                     if (usuario.getNombre_usuario().equals(nombreUsuario) &&
                         usuario.getContraseñaUsuario().equals(contrasenaUsuario)) {
                         usuarioValido = true;

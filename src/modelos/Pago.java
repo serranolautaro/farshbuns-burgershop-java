@@ -1,6 +1,6 @@
 package modelos;
 
-public class Pagos {
+public class Pago {
 
 	private float importe_total;
 	private float costo_por_envio;

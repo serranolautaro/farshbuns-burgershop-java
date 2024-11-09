@@ -5,6 +5,10 @@ import java.awt.Component;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import modelos.Producto;
+import modelos.Pedido;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +16,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -27,6 +32,7 @@ public class pantallaPrincipal extends JPanel {
 	private chatbot chatBot;
 	private JTextArea chatDisplay;
 	private JTextField chatInput;
+	private static final int MAX_LINES = 10;
 
 	/**
 	 * Create the panel.
@@ -89,7 +95,7 @@ public class pantallaPrincipal extends JPanel {
 			}
 		});
 		btnAsistente.setIcon(new ImageIcon("img\\pantallaPrincipal\\asistenteVirtual.png"));
-		btnAsistente.setBounds(1220, 416, 50, 50);
+		btnAsistente.setBounds(1190, 410, 50, 50);
 		btnAsistente.setOpaque(false);
 		btnAsistente.setBorderPainted(false);
 		btnAsistente.setContentAreaFilled(false);
@@ -243,7 +249,7 @@ public class pantallaPrincipal extends JPanel {
 		sendButton.setBounds(1180, 612, 79, 30);
 		sendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sendChatMessage();
+				enviarMensajeChatBot();
 			}
 		});
 		add(sendButton);
@@ -252,7 +258,7 @@ public class pantallaPrincipal extends JPanel {
 		chatInput.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					sendChatMessage();
+					enviarMensajeChatBot();
 				}
 			}
 		});
@@ -260,16 +266,31 @@ public class pantallaPrincipal extends JPanel {
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(20, 0, 1280, 720);
         add(gradientPanel);
-        */  
+*/
+		ArrayList<Producto> lista = new ArrayList<>();
+		
 	}
 	
-	private void sendChatMessage() {
-		String userMessage = chatInput.getText();
-		if (!userMessage.isEmpty()) {
-			chatDisplay.append("Usuario: " + userMessage + "\n");
-			String botResponse = chatBot.buscarRespuesta(userMessage);
-			chatDisplay.append("Bot: " + botResponse + "\n\n");
-			chatInput.setText("");
-		}
+	public pantallaPrincipal(Pedido pedido) {
+		super();
+		this.pedido = pedido;
+	}
+	
+	Pedido pedido = new Pedido();
+	
+	private void enviarMensajeChatBot() {
+	    String userMessage = chatInput.getText();
+	    if (!userMessage.isEmpty()) {
+	        chatDisplay.append("Usuario: " + userMessage + "\n");
+	        String botResponse = chatBot.buscarRespuesta(userMessage);
+	        chatDisplay.append("Bot: " + botResponse + "\n\n");
+	        chatInput.setText("");
+	        
+	        // Verifica si el número de líneas en chatDisplay supera MAX_LINES
+	        if (chatDisplay.getLineCount() > MAX_LINES) {
+	            chatDisplay.setText(""); // Reinicia el área de texto
+	            chatDisplay.append("Chat refrescado por politicas de espacio.\n\n");
+	        }
+	    }
 	}
 }

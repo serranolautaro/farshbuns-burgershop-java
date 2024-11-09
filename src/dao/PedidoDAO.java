@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import modelos.Pedidos;
+import modelos.Pedido;
 
 public class PedidoDAO {
 	
@@ -25,9 +25,9 @@ public class PedidoDAO {
 		return c;
 	}
 	
-	public ArrayList<Pedidos> traerTodosLosPedidos() {
+	public ArrayList<Pedido> traerTodosLosPedidos() {
 
-		ArrayList<Pedidos> pedidos = new ArrayList<>();
+		ArrayList<Pedido> pedidos = new ArrayList<>();
 		String columnaIdPedidos = "idPedido";
 		String columnaCosto = "costo";
 		String columnaTipoDeEntrega = "tipoDeEntrega";
@@ -41,7 +41,7 @@ public class PedidoDAO {
 				int id = rs.getInt(columnaIdPedidos);
 				int costo = rs.getInt(columnaCosto);
 				boolean tipo_de_entrega = rs.getBoolean(columnaTipoDeEntrega);
-				Pedidos pedido = new Pedidos(id, costo, tipo_de_entrega);
+				Pedido pedido = new Pedido(id, costo, tipo_de_entrega);
 				pedidos.add(pedido);
 			}
 		} catch (SQLException ex) {

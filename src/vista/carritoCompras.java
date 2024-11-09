@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -12,6 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import modelos.Pedido;
+import modelos.Producto;
+import service.ProductoService;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 
@@ -43,14 +49,15 @@ public class carritoCompras extends JPanel {
 		btnLogo.setBounds(10, 11, 119, 100);
 		add(btnLogo);
 		
-		DefaultListModel<String> modeloLista = new DefaultListModel<>();
+			modeloLista = new DefaultListModel<>();
 	        JScrollPane scrollPane = new JScrollPane();
 	        scrollPane.setBounds(460, 129, 300, 400);
 	        add(scrollPane);
 	        
-	        	        JList<String> listProductos = new JList<>(modeloLista);
-	        	        scrollPane.setViewportView(listProductos);
-
+	        JList<String> listProductos = new JList<>(modeloLista);
+	        scrollPane.setViewportView(listProductos);
+	        
+	        
 	        // Etiqueta para mostrar total del carrito
 	        JLabel lblTotal = new JLabel("Total: ");
 	        lblTotal.setForeground(Color.WHITE);
@@ -73,4 +80,21 @@ public class carritoCompras extends JPanel {
 	        gradientPanel.setBounds(0, 0, 1280, 720);
 	        add(gradientPanel);  
 	}
+	
+	Pedido pedido;
+	ProductoService productoService = new ProductoService();
+	public carritoCompras(Pedido pedido) {
+		this();
+		this.pedido = pedido;
+		ArrayList<Producto> lista = pedido.getProductos();
+		for (Producto producto : lista) {
+			modeloLista.addElement(producto.getNombre_producto());
+		}
+	}
+	
+	Producto producto;
+	DefaultListModel<String> modeloLista;
+	
+	
+	
 }

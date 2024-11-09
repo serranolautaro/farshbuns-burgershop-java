@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,6 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import modelos.Pedido;
+import modelos.Producto;
+import service.ProductoService;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
@@ -33,7 +39,7 @@ public class baconator extends JPanel {
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new pantallaPrincipal());
+				marco.setContentPane(new pantallaPrincipal(pedido));
 				marco.validate();
 			}
 		});
@@ -86,6 +92,11 @@ public class baconator extends JPanel {
 		add(lblBaconator);
 		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
+		btnAgregarCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pedido.agregarProducto(producto);
+			}
+		});
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
@@ -103,9 +114,26 @@ public class baconator extends JPanel {
 		textPaneDescripcionBaconator.setBackground(new Color(0, 0, 0, 0));
 		add(textPaneDescripcionBaconator);
 		
+		/*
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
+		*/
 
 	}
+	
+	Pedido pedido = new Pedido();
+	ProductoService productoService = new ProductoService();
+	public baconator(Pedido pedido) {
+		super();
+		this.pedido = pedido;
+		ArrayList<Producto> lista = productoService.traerProductoBD();
+		for (Producto producto : lista) {
+			if(producto.getNombre_producto().equalsIgnoreCase("baconator")) {
+				this.producto = producto;
+			}
+		}
+	}
+	
+	Producto producto;
 }

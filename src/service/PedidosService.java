@@ -14,7 +14,4 @@ public class PedidosService {
 		dataOutputStream.close();
 		socketConectarConElCliente.close();*/
 	}
-	
-	
-	
 }

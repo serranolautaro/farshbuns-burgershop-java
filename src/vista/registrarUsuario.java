@@ -6,7 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import modelos.Usuarios;
+import modelos.Usuario;
 import dao.UsuarioDAO;
 
 import javax.swing.ImageIcon;
@@ -95,7 +95,7 @@ public class registrarUsuario extends JPanel {
 		        String ubicacion = textFieldUbicacion.getText();
 
 		        // Crear un objeto Usuario con los datos ingresados
-		        Usuarios nuevoUsuario = new Usuarios(0, nombreUsuario, contraseniaUsuario, ubicacion, telefono); // Puedes ajustar los valores por defecto
+		        Usuario nuevoUsuario = new Usuario(0, nombreUsuario, contraseniaUsuario, ubicacion, telefono); // Puedes ajustar los valores por defecto
 
 		        // Instanciar el DAO y agregar el nuevo usuario a la base de datos
 		        UsuarioDAO usuarioDAO = new UsuarioDAO();

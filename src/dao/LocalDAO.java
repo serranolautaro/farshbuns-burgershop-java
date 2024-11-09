@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import modelos.Locales;
+import modelos.Local;
 
 public class LocalDAO {
 
@@ -25,9 +25,9 @@ public class LocalDAO {
 		return c;
 	}
 	
-	public ArrayList<Locales> traerTodosLosLocales() {
+	public ArrayList<Local> traerTodosLosLocales() {
 
-		ArrayList<Locales> locales = new ArrayList<>();
+		ArrayList<Local> locales = new ArrayList<>();
 		String columnaNombreLocales = "nombreLocal";
 		String columnaUbicacionLocales = "ubicacionLocal";
 		String columnaTelefonoLocales = "telefonoLocal";
@@ -43,7 +43,7 @@ public class LocalDAO {
 				String ubicacion = rs.getString(columnaUbicacionLocales);
 				int telefono = rs.getInt(columnaTelefonoLocales);
 				int zonaLocal = rs.getInt(columnaZonaLocal);
-				Locales local = new Locales(nombre, ubicacion, telefono, zonaLocal);
+				Local local = new Local(nombre, ubicacion, telefono, zonaLocal);
 				locales.add(local);
 			}
 		} catch (SQLException ex) {

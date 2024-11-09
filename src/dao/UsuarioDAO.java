@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import modelos.Usuarios;
+import modelos.Usuario;
 
 public class UsuarioDAO {
 	
@@ -25,7 +25,7 @@ public class UsuarioDAO {
 		return c;
 	}
 	
-	public boolean insertarUsuario(Usuarios nuevoUsuario) {
+	public boolean insertarUsuario(Usuario nuevoUsuario) {
 	    Connection c = null;
 	    boolean resultado = false;
 	    try {
@@ -55,9 +55,9 @@ public class UsuarioDAO {
 	    return resultado;
 	}
 	
-	public ArrayList<Usuarios> traerTodasLosUsuarios() {
+	public ArrayList<Usuario> traerTodasLosUsuarios() {
 
-		ArrayList<Usuarios> usuarios = new ArrayList<>();
+		ArrayList<Usuario> usuarios = new ArrayList<>();
 		String ColumnaIdUsuario = "idUsuario";
 		String columnaNombre = "nombreUsuario";
 		String columnaContrasenia = "contraseniaUsuario";
@@ -75,7 +75,7 @@ public class UsuarioDAO {
 				String contrasenia = rs.getString(columnaContrasenia);
 				String ubicacion = rs.getString(columnaUbicacion);
 				int telefono = rs.getInt(columnaTelefono);
-				Usuarios usuario = new Usuarios(id, nombre, contrasenia, ubicacion, telefono);
+				Usuario usuario = new Usuario(id, nombre, contrasenia, ubicacion, telefono);
 				usuarios.add(usuario);
 			}
 		} catch (SQLException ex) {

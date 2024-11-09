@@ -2,7 +2,7 @@ package modelos;
 
 import java.util.ArrayList;
 
-public class Usuarios {
+public class Usuario {
 
 	private int idUsuario;
 	private String nombreUsuario;
@@ -10,7 +10,7 @@ public class Usuarios {
 	private String ubicacion;
 	private int telefono;
 	
-	public Usuarios(int idUsuario, String nombreUsuario, String contraseniaUsuario, String ubicacion, int telefono) {
+	public Usuario(int idUsuario, String nombreUsuario, String contraseniaUsuario, String ubicacion, int telefono) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombreUsuario = nombreUsuario;
@@ -19,8 +19,8 @@ public class Usuarios {
 		this.telefono = telefono;
 	}
 	
-	private ArrayList<Usuarios> usuarios = new ArrayList<>();
-	public void agregarCuenta(Usuarios usuarioAgregar) {
+	private ArrayList<Usuario> usuarios = new ArrayList<>();
+	public void agregarCuenta(Usuario usuarioAgregar) {
 		usuarios.add(usuarioAgregar);
 	}
 	

@@ -2,7 +2,7 @@ package modelos;
 
 import java.util.ArrayList;
 
-public class Locales {
+public class Local {
 
 	private String nombre_local;
 	private String ubicacion_local;
@@ -10,7 +10,7 @@ public class Locales {
 	private int zona_local;
 	
 	
-	public Locales (String nombre_local, String ubicacion_local, int telefono_local, int zona_local) {
+	public Local (String nombre_local, String ubicacion_local, int telefono_local, int zona_local) {
 		super();
 		this.nombre_local = nombre_local;
 		this.ubicacion_local = ubicacion_local;
@@ -18,8 +18,8 @@ public class Locales {
 		this.zona_local = zona_local;
 	}
 	
-	private ArrayList<Locales> locales = new ArrayList<>();
-	public void agregarLocal(Locales localAgregar) {
+	private ArrayList<Local> locales = new ArrayList<>();
+	public void agregarLocal(Local localAgregar) {
 		locales.add(localAgregar);
 	}
 	
