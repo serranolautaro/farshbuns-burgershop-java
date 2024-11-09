@@ -10,16 +10,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JScrollBar;
+import javax.swing.JTextArea;
+
 import java.awt.Font;
 
 public class pantallaPrincipal extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField textFieldBarraBusqueda;
+	private chatbot chatBot;
+	private JTextArea chatDisplay;
+	private JTextField chatInput;
 
 	/**
 	 * Create the panel.
@@ -79,11 +86,10 @@ public class pantallaPrincipal extends JPanel {
 		JButton btnAsistente = new JButton("");
 		btnAsistente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 			}
 		});
 		btnAsistente.setIcon(new ImageIcon("img\\pantallaPrincipal\\asistenteVirtual.png"));
-		btnAsistente.setBounds(1194, 610, 50, 50);
+		btnAsistente.setBounds(1220, 416, 50, 50);
 		btnAsistente.setOpaque(false);
 		btnAsistente.setBorderPainted(false);
 		btnAsistente.setContentAreaFilled(false);
@@ -219,8 +225,51 @@ public class pantallaPrincipal extends JPanel {
 		btnBuscar.setBounds(857, 23, 99, 41);
 		add(btnBuscar);
 		
+		chatBot = new chatbot();  // Inicializa el chatbot
+
+		// Área de despliegue del chat
+		chatDisplay = new JTextArea();
+		chatDisplay.setEditable(false);
+		chatDisplay.setBounds(888, 463, 371, 146);  // Ubicación y tamaño
+		add(chatDisplay);
+
+		// Campo de entrada para el chat
+		chatInput = new JTextField();
+		chatInput.setBounds(888, 612, 290, 30);
+		add(chatInput);
+
+		// Botón para enviar el mensaje
+		JButton sendButton = new JButton("Enviar");
+		sendButton.setBounds(1180, 612, 79, 30);
+		sendButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sendChatMessage();
+			}
+		});
+		add(sendButton);
+	
+		// Listener para enviar mensaje con Enter
+		chatInput.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					sendChatMessage();
+				}
+			}
+		});
+		/*
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
-        gradientPanel.setBounds(0, 0, 1280, 720);
-        add(gradientPanel);  
+        gradientPanel.setBounds(20, 0, 1280, 720);
+        add(gradientPanel);
+        */  
+	}
+	
+	private void sendChatMessage() {
+		String userMessage = chatInput.getText();
+		if (!userMessage.isEmpty()) {
+			chatDisplay.append("Usuario: " + userMessage + "\n");
+			String botResponse = chatBot.buscarRespuesta(userMessage);
+			chatDisplay.append("Bot: " + botResponse + "\n\n");
+			chatInput.setText("");
+		}
 	}
 }
