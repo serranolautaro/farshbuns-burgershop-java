@@ -124,8 +124,9 @@ public class baconator extends JPanel {
 	
 	Pedido pedido = new Pedido();
 	ProductoService productoService = new ProductoService();
+	Producto producto = new Producto();
 	public baconator(Pedido pedido) {
-		super();
+		this();
 		this.pedido = pedido;
 		ArrayList<Producto> lista = productoService.traerProductoBD();
 		for (Producto producto : lista) {
@@ -135,5 +136,4 @@ public class baconator extends JPanel {
 		}
 	}
 	
-	Producto producto;
 }

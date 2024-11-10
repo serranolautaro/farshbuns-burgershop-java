@@ -78,7 +78,7 @@ public class pantallaPrincipal extends JPanel {
 		btnCarritoCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new carritoCompras());
+				marco.setContentPane(new carritoCompras(pedido));
 				marco.validate();
 			}
 		});
@@ -120,7 +120,7 @@ public class pantallaPrincipal extends JPanel {
 		btnBaconator.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new baconator());
+				marco.setContentPane(new baconator(pedido));
 				marco.validate();
 			}
 		});
@@ -267,12 +267,10 @@ public class pantallaPrincipal extends JPanel {
         gradientPanel.setBounds(20, 0, 1280, 720);
         add(gradientPanel);
 */
-		ArrayList<Producto> lista = new ArrayList<>();
-		
 	}
 	
 	public pantallaPrincipal(Pedido pedido) {
-		super();
+		this();
 		this.pedido = pedido;
 	}
 	

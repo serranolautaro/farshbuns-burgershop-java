@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import modelos.Pedido;
 import modelos.Producto;
+import service.PedidosService;
 import service.ProductoService;
 
 import javax.swing.JList;
@@ -69,7 +70,8 @@ public class carritoCompras extends JPanel {
 	        btnPagar.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
 	            	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-	                marco.setContentPane(new PedidoCliente());
+	                pedidos.enviarPedidoAlServidor(pedido);
+	            	marco.setContentPane(new PedidoCliente());
 	                marco.validate();
 	            }
 	        });
@@ -81,7 +83,7 @@ public class carritoCompras extends JPanel {
 	        add(gradientPanel);  
 	}
 	
-	Pedido pedido;
+	Pedido pedido = new Pedido();
 	ProductoService productoService = new ProductoService();
 	public carritoCompras(Pedido pedido) {
 		this();
@@ -90,8 +92,9 @@ public class carritoCompras extends JPanel {
 		for (Producto producto : lista) {
 			modeloLista.addElement(producto.getNombre_producto());
 		}
+		updateUI();
 	}
-	
+	PedidosService pedidos = new PedidosService();
 	Producto producto;
 	DefaultListModel<String> modeloLista;
 	
