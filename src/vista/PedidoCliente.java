@@ -13,6 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
+
+import modelos.Pedido;
+import modelos.Producto;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
@@ -28,7 +32,7 @@ public class PedidoCliente extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PedidoCliente() {
+	public PedidoCliente(Pedido pedido) {
 		
 		setBackground(new Color(0, 128, 192));
 		setForeground(new Color(255, 255, 255));
@@ -36,7 +40,7 @@ public class PedidoCliente extends JPanel {
 		setLayout(null);
 		
 		JButton btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon("C:\\Users\\Taro\\eclipse-workspace\\ProyectoFARSHBUNS\\img\\logo\\logo5.png"));
+		btnLogo.setIcon(new ImageIcon("img\\logo\\logo5.png"));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -56,13 +60,15 @@ public class PedidoCliente extends JPanel {
 		add(lblPedido);
 		
 		DefaultListModel<String> modeloLista = new DefaultListModel<>();
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(159, 191, 300, 400);
-        add(scrollPane);
-        
-        	        JList<String> listProductos = new JList<>(modeloLista);
-        	        listProductos.setBounds(159, 193, 298, 398);
-        	        add(listProductos);
+	    JList<String> listProductos = new JList<>(modeloLista);
+	    JScrollPane scrollPane = new JScrollPane(listProductos);
+	    scrollPane.setBounds(159, 191, 300, 400);
+	        add(scrollPane);
+
+	        // Rellenar JList con productos del pedido
+	        for (Producto producto : pedido.getProductos()) {
+	            modeloLista.addElement(producto.getNombre_producto());
+	        }
         	        
         	        JLabel lblNumeroTarjeta = new JLabel("INGRESE EL NUMERO DE SU TARJETA:");
         	        lblNumeroTarjeta.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -119,5 +125,7 @@ public class PedidoCliente extends JPanel {
         	        add(gradientPanel);  
 
 	}
+	
+	
 
 }

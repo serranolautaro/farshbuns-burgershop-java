@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,14 +16,26 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.JTextPane;
 
+import modelos.Pedido;
+import modelos.Producto;
+import service.ProductoService;
+
 public class nuggets extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Create the panel.
-	 */
-	public nuggets() {
+	private Pedido pedido;
+	private ProductoService productoService = new ProductoService();
+	private Producto producto;
+
+	public nuggets(Pedido pedido) {
+		this.pedido = pedido;
+		this.productoService = new ProductoService();
+		initialize();
+		cargarNuggetsData();
+	}
+	
+	private void initialize() {
 		setBackground(new Color(0, 128, 192));
 		setForeground(new Color(255, 255, 255));
 		setBounds(0, 0, 1280, 720);
@@ -33,7 +46,7 @@ public class nuggets extends JPanel {
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new pantallaPrincipal());
+				marco.setContentPane(new pantallaPrincipal(pedido));
 				marco.validate();
 			}
 		});
@@ -47,7 +60,7 @@ public class nuggets extends JPanel {
 		btnCarritoCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new carritoCompras());
+				marco.setContentPane(new carritoCompras(pedido));
 				marco.validate();
 			}
 		});
@@ -76,7 +89,7 @@ public class nuggets extends JPanel {
 		add(btnIniciarSesion);
 		
 		JLabel imagenNuggets = new JLabel(new ImageIcon("img\\hamburguesas\\NNuggetsGrande.jpg"));
-		imagenNuggets.setBounds(104,107,601,489);
+		imagenNuggets.setBounds(104, 107, 601, 489);
 		add(imagenNuggets);
 		
 		JLabel lblNuggets = new JLabel("NUGGETS");
@@ -87,6 +100,11 @@ public class nuggets extends JPanel {
 		add(lblNuggets);
 		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
+		btnAgregarCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pedido.agregarProducto(producto); // Añadir el producto al pedido
+			}
+		});
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
@@ -109,8 +127,16 @@ public class nuggets extends JPanel {
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
-
-
 	}
-
+	
+	private void cargarNuggetsData() {
+		ArrayList<Producto> lista = productoService.traerProductoBD();
+		for (Producto producto : lista) {
+			if(producto.getNombre_producto().equalsIgnoreCase("nuggets")) {
+				this.producto = producto;
+				break; // Detener una vez que encontramos el producto "nuggets"
+			}
+		}
+	}
 }
+

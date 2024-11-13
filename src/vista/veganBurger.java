@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,16 +14,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+
+import modelos.Pedido;
+import modelos.Producto;
+import service.ProductoService;
+
 import javax.swing.JTextPane;
 
 public class veganBurger extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	
+	private Pedido pedido;
+	private ProductoService productoService;
+	private Producto producto;
 
-	/**
-	 * Create the panel.
-	 */
-	public veganBurger() {
+	public veganBurger(Pedido pedido) {
+		this.pedido = pedido;
+		this.productoService = new ProductoService();
+		initialize();
+		cargarVeganBurger();
+	}
+
+	private void initialize() {
 		setBackground(new Color(0, 128, 192));
 		setForeground(new Color(255, 255, 255));
 		setBounds(0, 0, 1280, 720);
@@ -33,7 +47,7 @@ public class veganBurger extends JPanel {
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new pantallaPrincipal());
+				marco.setContentPane(new pantallaPrincipal(pedido));
 				marco.validate();
 			}
 		});
@@ -47,7 +61,7 @@ public class veganBurger extends JPanel {
 		btnCarritoCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new carritoCompras());
+				marco.setContentPane(new carritoCompras(pedido));
 				marco.validate();
 			}
 		});
@@ -76,7 +90,7 @@ public class veganBurger extends JPanel {
 		add(btnIniciarSesion);
 		
 		JLabel imagenVeganBurger = new JLabel(new ImageIcon("img\\hamburguesas\\veganburgerGrande.jpg"));
-		imagenVeganBurger.setBounds(104,107,601,489);
+		imagenVeganBurger.setBounds(104, 107, 601, 489);
 		add(imagenVeganBurger);
 		
 		JLabel lblVeganBurger = new JLabel("VEGAN BURGER");
@@ -89,7 +103,7 @@ public class veganBurger extends JPanel {
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
 		btnAgregarCarrito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				pedido.agregarProducto(producto);
 			}
 		});
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -115,5 +129,14 @@ public class veganBurger extends JPanel {
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);
 	}
-
+	
+	private void cargarVeganBurger() {
+		ArrayList<Producto> lista = productoService.traerProductoBD();
+		for (Producto producto : lista) {
+			if (producto.getNombre_producto().equalsIgnoreCase("veganBurger")) {
+				this.producto = producto;
+				break;
+			}
+		}
+	}
 }

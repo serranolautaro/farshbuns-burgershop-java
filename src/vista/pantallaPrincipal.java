@@ -133,7 +133,7 @@ public class pantallaPrincipal extends JPanel {
 		btnCheeseBurger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new cheeseBurger());
+				marco.setContentPane(new cheeseBurger(pedido));
 				marco.validate();
 			}
 		});
@@ -144,7 +144,7 @@ public class pantallaPrincipal extends JPanel {
 		btnVeganBurger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new veganBurger());
+				marco.setContentPane(new veganBurger(pedido));
 				marco.validate();
 			}
 		});
@@ -156,7 +156,7 @@ public class pantallaPrincipal extends JPanel {
 		btnNuggets.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new nuggets());
+				marco.setContentPane(new nuggets(pedido));
 				marco.validate();
 			}
 		});
@@ -177,26 +177,31 @@ public class pantallaPrincipal extends JPanel {
 		add(btnBastones);
 		
 		JLabel lblCheeseBurger = new JLabel("CHEESE BURGER");
+		lblCheeseBurger.setForeground(new Color(255, 255, 255));
 		lblCheeseBurger.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCheeseBurger.setBounds(546, 334, 200, 14);
 		add(lblCheeseBurger);
 		
 		JLabel lblBaconator = new JLabel("BACONATOR");
+		lblBaconator.setForeground(new Color(255, 255, 255));
 		lblBaconator.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblBaconator.setBounds(336, 334, 200, 14);
 		add(lblBaconator);
 		
 		JLabel lblVeganBurger = new JLabel("VEGAN BURGER");
+		lblVeganBurger.setForeground(new Color(255, 255, 255));
 		lblVeganBurger.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblVeganBurger.setBounds(756, 334, 200, 14);
 		add(lblVeganBurger);
 		
 		JLabel lblNuggets = new JLabel("NUGGETS");
+		lblNuggets.setForeground(new Color(255, 255, 255));
 		lblNuggets.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNuggets.setBounds(435, 579, 200, 14);
 		add(lblNuggets);
 		
 		JLabel lblBastonesDeMuzzarella = new JLabel("BASTONES DE MUZZARELLA");
+		lblBastonesDeMuzzarella.setForeground(new Color(255, 255, 255));
 		lblBastonesDeMuzzarella.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblBastonesDeMuzzarella.setBounds(678, 579, 200, 14);
 		add(lblBastonesDeMuzzarella);
@@ -211,11 +216,11 @@ public class pantallaPrincipal extends JPanel {
 						marco.validate();
 			        } else if (textoBusqueda.isEmpty() || "cheese".contains(textoBusqueda)) {
 			        	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-						marco.setContentPane(new cheeseBurger());
+						marco.setContentPane(new cheeseBurger(pedido));
 						marco.validate();
 					} else if (textoBusqueda.isEmpty() || "vegan".contains(textoBusqueda)) {
 						JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-						marco.setContentPane(new veganBurger());
+						marco.setContentPane(new veganBurger(pedido));
 						marco.validate();
 					} else if (textoBusqueda.isEmpty() || "bastones".contains(textoBusqueda)) {
 						JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
@@ -223,7 +228,7 @@ public class pantallaPrincipal extends JPanel {
 						marco.validate();
 					}else if(textoBusqueda.isEmpty() || "nuggets".contains(textoBusqueda)){
 						JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-						marco.setContentPane(new nuggets());
+						marco.setContentPane(new nuggets(pedido));
 						marco.validate();
 			        }
 			}

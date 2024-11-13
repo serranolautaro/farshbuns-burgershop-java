@@ -25,10 +25,18 @@ public class cheeseBurger extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Create the panel.
-	 */
-	public cheeseBurger() {
+	Pedido pedido;
+	ProductoService productoService = new ProductoService();
+	Producto producto;
+
+	public cheeseBurger(Pedido pedido) {
+		this.pedido = pedido;
+		this.productoService = new ProductoService();
+		initialize();
+		cargarCheeseBurger();
+	}
+	
+	private void initialize() {
 		setBackground(new Color(0, 128, 192));
 		setForeground(new Color(255, 255, 255));
 		setBounds(0, 0, 1280, 720);
@@ -120,21 +128,16 @@ public class cheeseBurger extends JPanel {
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
-
 	}
 	
-	Pedido pedido = new Pedido();
-	ProductoService productoService = new ProductoService();
-	Producto producto = new Producto();
-	public cheeseBurger(Pedido pedido) {
-		this();
-		this.pedido = pedido;
+	private void cargarCheeseBurger() {
 		ArrayList<Producto> lista = productoService.traerProductoBD();
 		for (Producto producto : lista) {
 			if(producto.getNombre_producto().equalsIgnoreCase("cheeseburger")) {
 				this.producto = producto;
+				break;
 			}
 		}
 	}
-
 }
+

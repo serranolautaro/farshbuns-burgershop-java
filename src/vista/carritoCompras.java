@@ -17,7 +17,6 @@ import javax.swing.SwingUtilities;
 import modelos.Pedido;
 import modelos.Producto;
 import service.PedidosService;
-import service.ProductoService;
 
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -25,12 +24,16 @@ import javax.swing.JScrollPane;
 public class carritoCompras extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	private DefaultListModel<String> modeloLista;
+	private Pedido pedido;
 
-	/**
-	 * Create the panel.
-	 */
+	public carritoCompras(Pedido pedido) {
+		this.pedido = pedido;
+		initialize();
+		updateCarritoList();
+	}
 	
-	public carritoCompras() {
+	private void initialize() {
 		setBackground(new Color(0, 128, 192));
 		setForeground(new Color(255, 255, 255));
 		setLayout(null);
@@ -51,53 +54,44 @@ public class carritoCompras extends JPanel {
 		btnLogo.setBounds(10, 11, 119, 100);
 		add(btnLogo);
 		
-			modeloLista = new DefaultListModel<>();
-	        JScrollPane scrollPane = new JScrollPane();
-	        scrollPane.setBounds(460, 129, 300, 400);
-	        add(scrollPane);
-	        
-	        JList<String> listProductos = new JList<>(modeloLista);
-	        scrollPane.setViewportView(listProductos);
-	        
-			// Etiqueta para mostrar total del carrito
-	        JLabel lblTotal = new JLabel("Total: ");
-	        lblTotal.setForeground(Color.WHITE);
-	        lblTotal.setBounds(460, 573, 200, 30);
-	        add(lblTotal);
-
-	        //
-	        JButton btnPagar = new JButton("Pagar");
-	        btnPagar.addActionListener(new ActionListener() {
-	            public void actionPerformed(ActionEvent e) {
-	            	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-	                pedidos.enviarPedidoAlServidor(pedido);
-	            	marco.setContentPane(new PedidoCliente());
-	                marco.validate();
-	            }
-	        });
-	        btnPagar.setBounds(460, 613, 100, 30);
-	        add(btnPagar);
-	        
-	        GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
-	        gradientPanel.setBounds(0, 0, 1280, 720);
-	        add(gradientPanel);  
+		modeloLista = new DefaultListModel<>();
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(460, 129, 300, 400);
+        add(scrollPane);
+        
+        JList<String> listProductos = new JList<>(modeloLista);
+        scrollPane.setViewportView(listProductos);
+        
+		JLabel lblTotal = new JLabel("Total: ");
+		lblTotal.setForeground(Color.WHITE);
+		lblTotal.setBounds(460, 550, 300, 40);
+		add(lblTotal);
+		
+		JButton btnPagar = new JButton("Pagar");
+        btnPagar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
+            	//PedidoCliente pedidoClientePanel = new PedidoCliente(pedido);
+                pedidos.enviarPedidoAlServidor(pedido);
+            	marco.setContentPane(new PedidoCliente(pedido));
+                marco.validate();
+            }
+        });
+        btnPagar.setBounds(460, 613, 100, 30);
+        add(btnPagar);
+        
+        GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
+        gradientPanel.setBounds(0, 0, 1280, 720);
+        add(gradientPanel);  
 	}
 	
-	Pedido pedido = new Pedido();
-	ProductoService productoService = new ProductoService();
-	public carritoCompras(Pedido pedido) {
-		this();
-		this.pedido = pedido;
-		ArrayList<Producto> lista = pedido.getProductos();
-		for (Producto producto : lista) {
-			modeloLista.addElement(producto.getNombre_producto());
-		}
-		updateUI();
-	}
 	PedidosService pedidos = new PedidosService();
 	Producto producto;
-	DefaultListModel<String> modeloLista;
 	
-	
-	
+	private void updateCarritoList() {
+		modeloLista.clear();
+		for (Producto producto : pedido.getProductos()) {
+			modeloLista.addElement(producto.getNombre_producto());
+		}
+	}
 }
