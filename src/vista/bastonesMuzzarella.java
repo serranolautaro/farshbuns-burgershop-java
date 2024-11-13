@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+
+import modelos.Pedido;
+import modelos.Producto;
+import service.ProductoService;
+
 import javax.swing.JTextPane;
 
 public class bastonesMuzzarella extends JPanel {
@@ -33,7 +39,7 @@ public class bastonesMuzzarella extends JPanel {
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new pantallaPrincipal());
+				marco.setContentPane(new pantallaPrincipal(pedido));
 				marco.validate();
 			}
 		});
@@ -47,7 +53,7 @@ public class bastonesMuzzarella extends JPanel {
 		btnCarritoCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new carritoCompras());
+				marco.setContentPane(new carritoCompras(pedido));
 				marco.validate();
 			}
 		});
@@ -87,13 +93,18 @@ public class bastonesMuzzarella extends JPanel {
 		add(lblBastonesTitulo);
 		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
+		btnAgregarCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pedido.agregarProducto(producto);
+			}
+		});
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
-		JLabel lblBastonesIngredientes = new JLabel("Ingredientes: Mozzarella, empanizado crujiente, salsa marinara.");
+		JLabel lblBastonesIngredientes = new JLabel("Mozzarella, empanizado crujiente, salsa marinara.");
 		lblBastonesIngredientes.setForeground(new Color(255, 255, 255));
-		lblBastonesIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblBastonesIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblBastonesIngredientes.setBounds(715, 395, 476, 33);
 		add(lblBastonesIngredientes);
 		
@@ -109,6 +120,19 @@ public class bastonesMuzzarella extends JPanel {
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
-
+	}
+	
+	Pedido pedido = new Pedido();
+	ProductoService productoService = new ProductoService();
+	Producto producto = new Producto();
+	public bastonesMuzzarella(Pedido pedido) {
+		this();
+		this.pedido = pedido;
+		ArrayList<Producto> lista = productoService.traerProductoBD();
+		for (Producto producto : lista) {
+			if(producto.getNombre_producto().equalsIgnoreCase("bastonesMuzzarella")) {
+				this.producto = producto;
+			}
+		}
 	}
 }

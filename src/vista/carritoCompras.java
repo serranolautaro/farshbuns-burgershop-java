@@ -29,6 +29,7 @@ public class carritoCompras extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public carritoCompras() {
 		setBackground(new Color(0, 128, 192));
 		setForeground(new Color(255, 255, 255));
@@ -58,8 +59,7 @@ public class carritoCompras extends JPanel {
 	        JList<String> listProductos = new JList<>(modeloLista);
 	        scrollPane.setViewportView(listProductos);
 	        
-	        
-	        // Etiqueta para mostrar total del carrito
+			// Etiqueta para mostrar total del carrito
 	        JLabel lblTotal = new JLabel("Total: ");
 	        lblTotal.setForeground(Color.WHITE);
 	        lblTotal.setBounds(460, 573, 200, 30);

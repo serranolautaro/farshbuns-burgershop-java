@@ -80,6 +80,7 @@ public class veganBurger extends JPanel {
 		add(imagenVeganBurger);
 		
 		JLabel lblVeganBurger = new JLabel("VEGAN BURGER");
+		lblVeganBurger.setForeground(new Color(255, 255, 255));
 		lblVeganBurger.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVeganBurger.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 26));
 		lblVeganBurger.setBounds(715, 107, 398, 33);
@@ -96,11 +97,13 @@ public class veganBurger extends JPanel {
 		add(btnAgregarCarrito);
 		
 		JLabel lblVeganBurgerIngredientes = new JLabel("Proteína vegetal, queso vegano, pan de hamburguesa integral.");
+		lblVeganBurgerIngredientes.setForeground(new Color(255, 255, 255));
 		lblVeganBurgerIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVeganBurgerIngredientes.setBounds(715, 395, 511, 33);
 		add(lblVeganBurgerIngredientes);
 		
 		JTextPane txtpnDescVegan = new JTextPane();
+		txtpnDescVegan.setForeground(new Color(255, 255, 255));
 		txtpnDescVegan.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtpnDescVegan.setText("Nuestra Vegan Burger clásica es ideal para los amantes de la comida vegetal. Con dos capas de jugosa hamburguesa a base de proteína vegetal, cubiertas con una generosa porción de queso vegano derretido, todo dentro de un suave pan integral. Es una delicia simple pero llena de sabor que te conquistará desde el primer bocado.");
 		txtpnDescVegan.setBounds(715, 151, 456, 241);
@@ -108,11 +111,9 @@ public class veganBurger extends JPanel {
 		txtpnDescVegan.setBackground(new Color(0, 0, 0, 0));
 		add(txtpnDescVegan);
 		
-		/*
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);
-        */  
 	}
 
 }

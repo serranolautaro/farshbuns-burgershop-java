@@ -53,7 +53,7 @@ public class baconator extends JPanel {
 		btnCarritoCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new carritoCompras());
+				marco.setContentPane(new carritoCompras(pedido));
 				marco.validate();
 			}
 		});
@@ -86,6 +86,7 @@ public class baconator extends JPanel {
 		add(imagenBaconator);
 		
 		JLabel lblBaconator = new JLabel("BACONATOR");
+		lblBaconator.setForeground(new Color(255, 255, 255));
 		lblBaconator.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBaconator.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 30));
 		lblBaconator.setBounds(715, 107, 398, 33);
@@ -102,11 +103,13 @@ public class baconator extends JPanel {
 		add(btnAgregarCarrito);
 		
 		JLabel lblBaconatorIngredientes = new JLabel("Carne de res, bacon, queso cheddar, pan de hamburguesa.");
+		lblBaconatorIngredientes.setForeground(new Color(255, 255, 255));
 		lblBaconatorIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblBaconatorIngredientes.setBounds(715, 395, 475, 33);
 		add(lblBaconatorIngredientes);
 		
 		JTextPane textPaneDescripcionBaconator = new JTextPane();
+		textPaneDescripcionBaconator.setForeground(new Color(255, 255, 255));
 		textPaneDescripcionBaconator.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textPaneDescripcionBaconator.setText("La Baconator es una hamburguesa épica para los amantes del bacon. Cuenta con dos jugosas hamburguesas de carne de res, acompañadas de seis tiras crujientes de bacon, cubiertas con abundante queso cheddar derretido. Todo esto en un pan suave que hace que cada bocado sea una explosión de sabor.");
 		textPaneDescripcionBaconator.setBounds(715, 151, 475, 233);
@@ -114,11 +117,9 @@ public class baconator extends JPanel {
 		textPaneDescripcionBaconator.setBackground(new Color(0, 0, 0, 0));
 		add(textPaneDescripcionBaconator);
 		
-		/*
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
-		*/
 
 	}
 	

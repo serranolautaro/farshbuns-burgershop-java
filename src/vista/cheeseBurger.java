@@ -5,6 +5,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+
+import modelos.Pedido;
+import modelos.Producto;
+import service.ProductoService;
+
 import javax.swing.JTextPane;
 
 public class cheeseBurger extends JPanel {
@@ -33,7 +39,7 @@ public class cheeseBurger extends JPanel {
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new pantallaPrincipal());
+				marco.setContentPane(new pantallaPrincipal(pedido));
 				marco.validate();
 			}
 		});
@@ -47,7 +53,7 @@ public class cheeseBurger extends JPanel {
 		btnCarritoCompras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-				marco.setContentPane(new carritoCompras());
+				marco.setContentPane(new carritoCompras(pedido));
 				marco.validate();
 			}
 		});
@@ -80,22 +86,30 @@ public class cheeseBurger extends JPanel {
 		add(imagenCheeseburger);
 		
 		JLabel lblCheeseburgerTitulo = new JLabel("CHEESE BURGER");
+		lblCheeseburgerTitulo.setForeground(new Color(255, 255, 255));
 		lblCheeseburgerTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCheeseburgerTitulo.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 26));
 		lblCheeseburgerTitulo.setBounds(715, 107, 398, 33);
 		add(lblCheeseburgerTitulo);
 		
 		JButton btnAgregarCarrito = new JButton("AÑADIR AL CARRITO");
+		btnAgregarCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pedido.agregarProducto(producto);
+			}
+		});
 		btnAgregarCarrito.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
 		JLabel lblCheeseburgerIngredientes = new JLabel("Carne de res, queso cheddar, pan de hamburguesa.");
+		lblCheeseburgerIngredientes.setForeground(new Color(255, 255, 255));
 		lblCheeseburgerIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCheeseburgerIngredientes.setBounds(715, 395, 419, 33);
 		add(lblCheeseburgerIngredientes);
 		
 		JTextPane txtpnDescCheeseBurger = new JTextPane();
+		txtpnDescCheeseBurger.setForeground(new Color(255, 255, 255));
 		txtpnDescCheeseBurger.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtpnDescCheeseBurger.setText("Nuestra Cheese Burger clásica es perfecta para los amantes del queso. Con dos capas de jugosa carne de res, cubiertas con una generosa porción de queso cheddar derretido, todo dentro de un pan esponjoso. Es una delicia simple pero irresistible.");
 		txtpnDescCheeseBurger.setBounds(715, 151, 419, 233);
@@ -107,6 +121,20 @@ public class cheeseBurger extends JPanel {
         gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);  
 
+	}
+	
+	Pedido pedido = new Pedido();
+	ProductoService productoService = new ProductoService();
+	Producto producto = new Producto();
+	public cheeseBurger(Pedido pedido) {
+		this();
+		this.pedido = pedido;
+		ArrayList<Producto> lista = productoService.traerProductoBD();
+		for (Producto producto : lista) {
+			if(producto.getNombre_producto().equalsIgnoreCase("cheeseburger")) {
+				this.producto = producto;
+			}
+		}
 	}
 
 }

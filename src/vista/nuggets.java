@@ -80,6 +80,7 @@ public class nuggets extends JPanel {
 		add(imagenNuggets);
 		
 		JLabel lblNuggets = new JLabel("NUGGETS");
+		lblNuggets.setForeground(new Color(255, 255, 255));
 		lblNuggets.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNuggets.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 26));
 		lblNuggets.setBounds(715, 107, 398, 33);
@@ -90,12 +91,14 @@ public class nuggets extends JPanel {
 		btnAgregarCarrito.setBounds(804, 536, 233, 40);
 		add(btnAgregarCarrito);
 		
-		JLabel lblNuggetsIngredientes = new JLabel("Ingredientes: Pollo, empanizado crujiente.");
+		JLabel lblNuggetsIngredientes = new JLabel("Pollo, empanizado crujiente.");
+		lblNuggetsIngredientes.setForeground(new Color(255, 255, 255));
 		lblNuggetsIngredientes.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNuggetsIngredientes.setBounds(715, 395, 398, 33);
 		add(lblNuggetsIngredientes);
 		
 		JTextPane txtpnDescNuggets = new JTextPane();
+		txtpnDescNuggets.setForeground(new Color(255, 255, 255));
 		txtpnDescNuggets.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtpnDescNuggets.setText("Nuestros Nuggets son bocados crujientes y dorados por fuera, tiernos y jugosos por dentro. Perfectos para compartir o disfrutar como acompañamiento, vienen acompañados de una salsa especial que realza su sabor.");
 		txtpnDescNuggets.setBounds(715, 151, 433, 233);

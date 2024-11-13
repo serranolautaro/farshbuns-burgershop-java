@@ -231,15 +231,15 @@ public class pantallaPrincipal extends JPanel {
 		btnBuscar.setBounds(857, 23, 99, 41);
 		add(btnBuscar);
 		
-		chatBot = new chatbot();  // Inicializa el chatbot
+		chatBot = new chatbot();
 
 		// Área de despliegue del chat
 		chatDisplay = new JTextArea();
 		chatDisplay.setEditable(false);
-		chatDisplay.setBounds(888, 463, 371, 146);  // Ubicación y tamaño
+		chatDisplay.setBounds(888, 463, 371, 146);
 		add(chatDisplay);
 
-		// Campo de entrada para el chat
+		
 		chatInput = new JTextField();
 		chatInput.setBounds(888, 612, 290, 30);
 		add(chatInput);
@@ -262,11 +262,10 @@ public class pantallaPrincipal extends JPanel {
 				}
 			}
 		});
-		/*
+
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
         gradientPanel.setBounds(20, 0, 1280, 720);
         add(gradientPanel);
-*/
 	}
 	
 	public pantallaPrincipal(Pedido pedido) {
@@ -279,9 +278,9 @@ public class pantallaPrincipal extends JPanel {
 	private void enviarMensajeChatBot() {
 	    String userMessage = chatInput.getText();
 	    if (!userMessage.isEmpty()) {
-	        chatDisplay.append("Usuario: " + userMessage + "\n");
+	        chatDisplay.append("Tú: " + userMessage + "\n");
 	        String botResponse = chatBot.buscarRespuesta(userMessage);
-	        chatDisplay.append("Bot: " + botResponse + "\n\n");
+	        chatDisplay.append("FarshBot: " + botResponse + "\n\n");
 	        chatInput.setText("");
 	        
 	        // Verifica si el número de líneas en chatDisplay supera MAX_LINES

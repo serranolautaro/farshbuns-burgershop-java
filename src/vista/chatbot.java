@@ -20,19 +20,19 @@ public class chatbot extends JPanel {
 	    
 	public chatbot() {
 		 respuestas = new HashMap<>();
-	        respuestas.put("Hola", "Bienvenido a Farshbuns ¿qué desea hoy?");
-	        respuestas.put("hola", "Bienvenido a Farshbuns ¿qué desea hoy?");
+	        respuestas.put("Hola", "Hola, soy FarshBot 🤖. ¿qué desea el dia de hoy?");
+	        respuestas.put("hola", "Hola, soy FarshBot 🤖. Espero servirte el dia de hoy ¿qué desea?");
 	        respuestas.put("Hamburguesas", "La lista de hamburguesas disponibles es: \n·Baconator \n·Cheese \n·Vegan ");
-	        respuestas.put("Acompañantes", "La lista de acompañantes disponibles es: \\n·Nuggets \\n·Bastones de Muzzarella");
+	        respuestas.put("Acompañantes", "La lista de acompañantes disponibles es: \n·Nuggets \n·Bastones de Muzzarella");
 	        
 	        menuDiario = new HashMap<>();
-		     menuDiario.put(DayOfWeek.MONDAY, "Menú del lunes: Baconator junto a unos bastones de muzzarella.");
-		     menuDiario.put(DayOfWeek.TUESDAY, "Menú del martes: Hamburguesa doble con queso, papas y bebida.");
-		     menuDiario.put(DayOfWeek.WEDNESDAY, "Menú del miércoles: Hamburguesa vegetariana con papas y bebida.");
-		     menuDiario.put(DayOfWeek.THURSDAY, "Menú del jueves: Hamburguesa de pollo con papas y bebida.");
-		     menuDiario.put(DayOfWeek.FRIDAY, "Menú del viernes: Hamburguesa BBQ con papas y bebida.");
-		     menuDiario.put(DayOfWeek.SATURDAY, "Menú del sábado: BACONATOR junto a NUGGETS.");
-		     menuDiario.put(DayOfWeek.SUNDAY, "Menú del domingo: Combo familiar con hamburguesas y papas grandes.");
+		     menuDiario.put(DayOfWeek.MONDAY, "🌟 Lunes: Comienza la semana con nuestro BACONATOR\n acompañado de BASTONES de Muzzarella.");
+		     menuDiario.put(DayOfWeek.TUESDAY, "🌟 Martes: Disfruta de una deliciosa CHEESE \ncon BASTONES de Muzzarella.");
+		     menuDiario.put(DayOfWeek.WEDNESDAY, "🌟 Miercoles: Opta por una VEGAN \ncon BASTONES de Muzzarella.");
+		     menuDiario.put(DayOfWeek.THURSDAY, "🌟 Jueves: Elige una CHEESE con NUGGETS.");
+		     menuDiario.put(DayOfWeek.FRIDAY, "🌟 Viernes: ¡Nada mejor que un BACONATOR con NUGGETS!");
+		     menuDiario.put(DayOfWeek.SATURDAY, "🌟 Sábado: Dale un toque diferente al fin de semana\n con nuestra VEGAN acompañada de NUGGETS.");
+		     menuDiario.put(DayOfWeek.SUNDAY, "🌟 Domingo: Disfruta el día con un BACONATOR \ny BASTONES de Muzzarella.");
 	        
 	        // Configurar el área de chat
 	        chatArea = new JTextArea(10, 30);
@@ -67,7 +67,7 @@ public class chatbot extends JPanel {
     	if (pregunta.equalsIgnoreCase("Menu del dia")) {
             return getMenuDelDia();
         }
-        return respuestas.getOrDefault(pregunta, "No sé, pregúntale al CoOwner, Francisco Masa.");
+        return respuestas.getOrDefault(pregunta, "Lo siento, no tengo la respuesta en este momento.");
     }
     
     private String getMenuDelDia() {
