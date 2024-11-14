@@ -269,7 +269,7 @@ public class pantallaPrincipal extends JPanel {
 		});
 
 		GradientPanel gradientPanel = new GradientPanel(Color.ORANGE, Color.BLUE);
-        gradientPanel.setBounds(20, 0, 1280, 720);
+        gradientPanel.setBounds(0, 0, 1280, 720);
         add(gradientPanel);
 	}
 	

@@ -55,6 +55,7 @@ public class inicioSesion extends JPanel {
         add(btnLogo);
         
         JLabel lblUsuario = new JLabel("USUARIO");
+        lblUsuario.setForeground(new Color(255, 255, 255));
         lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblUsuario.setBounds(433, 217, 172, 28);
         add(lblUsuario);
@@ -65,6 +66,7 @@ public class inicioSesion extends JPanel {
         textFieldUsuario.setColumns(10);
         
         JLabel lblContraseña = new JLabel("CONTRASEÑA");
+        lblContraseña.setForeground(new Color(255, 255, 255));
         lblContraseña.setFont(new Font("Tahoma", Font.PLAIN, 20));
         lblContraseña.setBounds(677, 217, 172, 28);
         add(lblContraseña);
@@ -84,27 +86,27 @@ public class inicioSesion extends JPanel {
         JButton btnIngresar = new JButton("INGRESAR");
         btnIngresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String nombreUsuario = textFieldUsuario.getText();
+            	String nombreUsuario = textFieldUsuario.getText();
                 String contrasenaUsuario = textFieldContraseña.getText();
                 
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                 ArrayList<Usuario> usuarios = usuarioDAO.traerTodasLosUsuarios();
 
-                boolean usuarioValido = false;
+                Usuario usuarioValido = null;
 
                 // Verifica si el nombre de usuario y la contraseña coinciden
                 for (Usuario usuario : usuarios) {
                     if (usuario.getNombre_usuario().equals(nombreUsuario) &&
                         usuario.getContraseñaUsuario().equals(contrasenaUsuario)) {
-                        usuarioValido = true;
+                        usuarioValido = usuario;
                         break;
                     }
                 }
 
-                // Si el usuario es válido, redirige a pantallaPrincipal
-                if (usuarioValido) {
+                // Si el usuario es válido, redirige a perfilUsuario
+                if (usuarioValido != null) {
                     JFrame marco = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
-                    marco.setContentPane(new pantallaPrincipal());
+                    marco.setContentPane(new perfilUsuario(usuarioValido));
                     marco.validate();
                 } else {
                     // Muestra el mensaje de error

@@ -21,9 +21,32 @@ public class chatbot extends JPanel {
 	public chatbot() {
 		 respuestas = new HashMap<>();
 	        respuestas.put("Hola", "Hola, soy FarshBot 🤖. ¿qué desea el dia de hoy?");
-	        respuestas.put("hola", "Hola, soy FarshBot 🤖. Espero servirte el dia de hoy ¿qué desea?");
+	        respuestas.put("Buenos dias", "Bienvenido a Farshbuns ¿qué desea hoy?");
+	        
+	        respuestas.put("Ofertas", "Lastimosamente no contamos con ofertas");
+	        respuestas.put("Cupon", "Lastimosamente no contamos con cupones");
+	        respuestas.put("promociones", "No contamos con promociones");
+	        
+	        respuestas.put("Donde están ubicados", "En estos momentos no contamos con local fisico.");
+	        respuestas.put("ubicacion", "En estos momentos no contamos con local fisico.");
+	        respuestas.put("Que metodos de pago aceptan", "Solo aceptamos tarjetas de debito o credito");
+	        respuestas.put("métodos de pago", "Solo aceptamos tarjetas de debito o credito.");
+	        
 	        respuestas.put("Hamburguesas", "La lista de hamburguesas disponibles es: \n·Baconator \n·Cheese \n·Vegan ");
 	        respuestas.put("Acompañantes", "La lista de acompañantes disponibles es: \n·Nuggets \n·Bastones de Muzzarella");
+	        respuestas.put("papas", "La lista de acompañantes disponibles es: \\n·Nuggets \\n·Bastones de Muzzarella");
+	        
+	        respuestas.put("sugerencias", "Si me dices una palabra clave tal vez pueda ayudarte a decidir");
+	        respuestas.put("recomendaciones", "Si me dices una palabra clave tal vez pueda ayudarte a decidir");
+	        respuestas.put("recomendame", "Si me dices una palabra clave tal vez pueda ayudarte a decidir");
+	        
+	        respuestas.put("sano", "Si quieres una opcion saludable te recomiendo la Vegan");
+	        respuestas.put("saludable", "Si quieres una opcion saludable te recomiendo la Vegan");
+	        respuestas.put("carne", " Te recomiendo la Baconator");
+	        respuestas.put("intermedio", "Te recomiendo la Cheese");
+	        
+	        respuestas.put("tiempo de entrega", "El tiempo de entrega estimado es de 30 a 40 minutos.");
+	        respuestas.put("demora", "Nuestro tiempo de entrega estimado es de 30 a 40 minutos.");
 	        
 	        menuDiario = new HashMap<>();
 		     menuDiario.put(DayOfWeek.MONDAY, "🌟 Lunes: Comienza la semana con nuestro BACONATOR\n acompañado de BASTONES de Muzzarella.");
@@ -63,11 +86,21 @@ public class chatbot extends JPanel {
         }
     }
 
-    public String buscarRespuesta(String pregunta) {
-    	if (pregunta.equalsIgnoreCase("Menu del dia")) {
+	public String buscarRespuesta(String pregunta) {
+        // Buscar si la pregunta coincide con una clave, sin importar mayúsculas y minúsculas
+        for (String clave : respuestas.keySet()) {
+            if (pregunta.equalsIgnoreCase(clave)) {
+                return respuestas.get(clave);
+            }
+        }
+        
+        // Si la pregunta es "Menu del dia", devolver el menú correspondiente
+        if (pregunta.equalsIgnoreCase("Menu del dia")) {
             return getMenuDelDia();
         }
-        return respuestas.getOrDefault(pregunta, "Lo siento, no tengo la respuesta en este momento.");
+        
+        // Si no se encuentra la respuesta, devolver un mensaje por defecto
+        return "Lo siento, no tengo la respuesta en este momento.";
     }
     
     private String getMenuDelDia() {

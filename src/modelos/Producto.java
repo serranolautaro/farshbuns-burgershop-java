@@ -4,12 +4,14 @@ public class Producto {
 
     private int id_producto;
     private String nombre_producto;
+    private int precioProducto;
     private boolean esHamburguesa;
     private boolean esAcompaniamiento;
 
-    public Producto(int id_producto, String nombre_producto, boolean esHamburguesa, boolean esAcompaniamiento) {
+    public Producto(int id_producto, String nombre_producto,int precioProducto, boolean esHamburguesa, boolean esAcompaniamiento) {
         this.id_producto = id_producto;
         this.nombre_producto = nombre_producto;
+        this.precioProducto = precioProducto;
         this.esHamburguesa = esHamburguesa;
         this.esAcompaniamiento = esAcompaniamiento;
     }
@@ -28,7 +30,13 @@ public class Producto {
     public void setNombre_producto(String nombre_producto) {
         this.nombre_producto = nombre_producto;
     }
-    public boolean getEsHamburguesa() {
+    public int getPrecioProducto() {
+		return precioProducto;
+	}
+	public void setPrecioProducto(int precioProducto) {
+		this.precioProducto = precioProducto;
+	}
+	public boolean getEsHamburguesa() {
         return esHamburguesa;
     }
     public void setEsHamburguesa(boolean esHamburguesa) {

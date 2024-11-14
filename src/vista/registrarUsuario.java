@@ -52,11 +52,13 @@ public class registrarUsuario extends JPanel {
 		
 		
 		JLabel lblUsuario = new JLabel("USUARIO");
+		lblUsuario.setForeground(new Color(255, 255, 255));
         lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 11));
         lblUsuario.setBounds(338, 259, 200, 14);
 		add(lblUsuario);
 		
 		JLabel lblContraseña = new JLabel("CONTRASEÑA");
+		lblContraseña.setForeground(new Color(255, 255, 255));
 		lblContraseña.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblContraseña.setBounds(712, 259, 127, 14);
 		add(lblContraseña);
@@ -72,6 +74,7 @@ public class registrarUsuario extends JPanel {
 		textFieldContrasenia.setColumns(10);
 		
 		JLabel lblNuevoRegistro = new JLabel("CREA TU CUENTA");
+		lblNuevoRegistro.setForeground(new Color(255, 255, 255));
 		lblNuevoRegistro.setFont(new Font("Tahoma", Font.BOLD, 21));
 		lblNuevoRegistro.setBounds(516, 189, 194, 27);
 		add(lblNuevoRegistro);
@@ -123,11 +126,13 @@ public class registrarUsuario extends JPanel {
 		textFieldTelefono.setColumns(10);
 		
 		JLabel lblTelefono = new JLabel("TELEFONO");
+		lblTelefono.setForeground(new Color(255, 255, 255));
 		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblTelefono.setBounds(338, 313, 200, 14);
 		add(lblTelefono);
 		
 		JLabel lblUbicacion = new JLabel("UBICACION");
+		lblUbicacion.setForeground(new Color(255, 255, 255));
 		lblUbicacion.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblUbicacion.setBounds(712, 313, 200, 14);
 		add(lblUbicacion);
